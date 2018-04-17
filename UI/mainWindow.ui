@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>533</height>
+    <width>1266</width>
+    <height>793</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,7 +38,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1266</width>
      <height>21</height>
     </rect>
    </property>
@@ -47,6 +47,7 @@
      <string>Files</string>
     </property>
     <addaction name="actionOpen"/>
+    <addaction name="actionReload_Image"/>
     <addaction name="actionSave"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
@@ -74,10 +75,11 @@
     <addaction name="separator"/>
     <addaction name="actionFlip_Horizontal"/>
     <addaction name="actionFlip_Vertical"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuMorphological_Transformations">
     <property name="title">
-     <string>Morphological Transformations</string>
+     <string>Morphological</string>
     </property>
     <addaction name="actionErosion"/>
     <addaction name="actionDilation"/>
@@ -194,6 +196,19 @@
   <action name="actionMorphological_Gradient">
    <property name="text">
     <string>Morphological Gradient</string>
+   </property>
+  </action>
+  <action name="actionsAS">
+   <property name="text">
+    <string>sAS</string>
+   </property>
+  </action>
+  <action name="actionReload_Image">
+   <property name="text">
+    <string>Reload Image</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
    </property>
   </action>
  </widget>

@@ -11,6 +11,7 @@ import imghdr
 class MainWindowController(object):
     def __init__(self):
         self.image = None
+        self.path = ""
         self.app = QtWidgets.QApplication(sys.argv)
         self.MainWindow = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow()
@@ -20,6 +21,7 @@ class MainWindowController(object):
     def __setup(self):      
         # Files          
         self.ui.actionOpen.triggered.connect(self.onTriggerd_actionOpen)
+        self.ui.actionReload_Image.triggered.connect(self.reloadImage)
         self.ui.actionSave.triggered.connect(self.onTriggerd_actionSave)
         self.ui.actionExit.triggered.connect(self.trigger_actionExit)
         # Colorspace
@@ -38,19 +40,25 @@ class MainWindowController(object):
         self.ui.actionClosing.triggered.connect(self.closing)
         self.ui.actionMorphological_Gradient.triggered.connect(self.morphologicalGradient)
 
-
+    def reloadImage(self):
+        if self.path and len(self.path) > 0:            
+            isImage = imghdr.what(self.path)
+            if isImage is not None:    
+                self.image = cv2.imread(self.path,cv2.IMREAD_UNCHANGED)
+                if self.image is None:
+                    print("Error to reload image")
+                else: 
+                    print("Reloaded")
+                    self.updateImage()
     def onTriggerd_actionOpen(self):        
         dialog = QtWidgets.QFileDialog()        
         dialog.setFileMode(QtWidgets.QFileDialog.FileMode())        
         file = dialog.getOpenFileName(None,'Open an image')
         if file and len(file[0]) > 0:
-            filePath = file[0]
-            isImage = imghdr.what(filePath)           
-            print("File Infos:",len(file))
-            print("path: ",filePath)
-            print("Type: ",file[1])            
+            self.path = file[0]
+            isImage = imghdr.what(self.path)               
             if isImage is not None:
-                self.image = cv2.imread(filePath,cv2.IMREAD_UNCHANGED)
+                self.image = cv2.imread(self.path,cv2.IMREAD_UNCHANGED)
                 if self.image is None:
                     print("Error")
                 else:

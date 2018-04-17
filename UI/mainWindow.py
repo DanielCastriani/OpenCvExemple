@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 533)
+        MainWindow.resize(1266, 793)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.lbImage, 0, 0, 1, 2)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1266, 21))
         self.menubar.setObjectName("menubar")
         self.menuFIles = QtWidgets.QMenu(self.menubar)
         self.menuFIles.setObjectName("menuFIles")
@@ -69,7 +69,12 @@ class Ui_MainWindow(object):
         self.actionClosing.setObjectName("actionClosing")
         self.actionMorphological_Gradient = QtWidgets.QAction(MainWindow)
         self.actionMorphological_Gradient.setObjectName("actionMorphological_Gradient")
+        self.actionsAS = QtWidgets.QAction(MainWindow)
+        self.actionsAS.setObjectName("actionsAS")
+        self.actionReload_Image = QtWidgets.QAction(MainWindow)
+        self.actionReload_Image.setObjectName("actionReload_Image")
         self.menuFIles.addAction(self.actionOpen)
+        self.menuFIles.addAction(self.actionReload_Image)
         self.menuFIles.addAction(self.actionSave)
         self.menuFIles.addSeparator()
         self.menuFIles.addAction(self.actionExit)
@@ -82,6 +87,7 @@ class Ui_MainWindow(object):
         self.menuTransformations.addSeparator()
         self.menuTransformations.addAction(self.actionFlip_Horizontal)
         self.menuTransformations.addAction(self.actionFlip_Vertical)
+        self.menuTransformations.addSeparator()
         self.menuMorphological_Transformations.addAction(self.actionErosion)
         self.menuMorphological_Transformations.addAction(self.actionDilation)
         self.menuMorphological_Transformations.addAction(self.actionOpening)
@@ -103,7 +109,7 @@ class Ui_MainWindow(object):
         self.menuColorspace.setTitle(_translate("MainWindow", "Colorspace"))
         self.menuTransformations.setTitle(_translate("MainWindow", "Transformations"))
         self.menuRotate.setTitle(_translate("MainWindow", "Rotate"))
-        self.menuMorphological_Transformations.setTitle(_translate("MainWindow", "Morphological Transformations"))
+        self.menuMorphological_Transformations.setTitle(_translate("MainWindow", "Morphological"))
         self.actionOpen.setText(_translate("MainWindow", "Open"))
         self.actionOpen.setShortcut(_translate("MainWindow", "Ctrl+O"))
         self.actionSave.setText(_translate("MainWindow", "Save"))
@@ -129,6 +135,9 @@ class Ui_MainWindow(object):
         self.actionOpening.setText(_translate("MainWindow", "Opening"))
         self.actionClosing.setText(_translate("MainWindow", "Closing"))
         self.actionMorphological_Gradient.setText(_translate("MainWindow", "Morphological Gradient"))
+        self.actionsAS.setText(_translate("MainWindow", "sAS"))
+        self.actionReload_Image.setText(_translate("MainWindow", "Reload Image"))
+        self.actionReload_Image.setShortcut(_translate("MainWindow", "Ctrl+R"))
 
 
 if __name__ == "__main__":
