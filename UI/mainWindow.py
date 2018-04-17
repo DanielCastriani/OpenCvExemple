@@ -1,0 +1,113 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'mainWindow.ui'
+#
+# Created by: PyQt5 UI code generator 5.10.1
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(800, 533)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName("gridLayout")
+        self.lbImage = QtWidgets.QLabel(self.centralwidget)
+        self.lbImage.setMinimumSize(QtCore.QSize(20, 20))
+        self.lbImage.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbImage.setObjectName("lbImage")
+        self.gridLayout.addWidget(self.lbImage, 0, 0, 1, 2)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setObjectName("menubar")
+        self.menuFIles = QtWidgets.QMenu(self.menubar)
+        self.menuFIles.setObjectName("menuFIles")
+        self.menuColorspace = QtWidgets.QMenu(self.menubar)
+        self.menuColorspace.setObjectName("menuColorspace")
+        self.menuTransformations = QtWidgets.QMenu(self.menubar)
+        self.menuTransformations.setObjectName("menuTransformations")
+        self.menuRotate = QtWidgets.QMenu(self.menuTransformations)
+        self.menuRotate.setObjectName("menuRotate")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.actionOpen = QtWidgets.QAction(MainWindow)
+        self.actionOpen.setObjectName("actionOpen")
+        self.actionSave = QtWidgets.QAction(MainWindow)
+        self.actionSave.setObjectName("actionSave")
+        self.actionExit = QtWidgets.QAction(MainWindow)
+        self.actionExit.setObjectName("actionExit")
+        self.actionHSV = QtWidgets.QAction(MainWindow)
+        self.actionHSV.setObjectName("actionHSV")
+        self.actionGrayscale = QtWidgets.QAction(MainWindow)
+        self.actionGrayscale.setObjectName("actionGrayscale")
+        self.actionFlick_Horizontal = QtWidgets.QAction(MainWindow)
+        self.actionFlick_Horizontal.setObjectName("actionFlick_Horizontal")
+        self.actionFlip_Vertical = QtWidgets.QAction(MainWindow)
+        self.actionFlip_Vertical.setObjectName("actionFlip_Vertical")
+        self.actionRotateClockwise = QtWidgets.QAction(MainWindow)
+        self.actionRotateClockwise.setObjectName("actionRotateClockwise")
+        self.actionRotateAntiClockwise = QtWidgets.QAction(MainWindow)
+        self.actionRotateAntiClockwise.setObjectName("actionRotateAntiClockwise")
+        self.menuFIles.addAction(self.actionOpen)
+        self.menuFIles.addAction(self.actionSave)
+        self.menuFIles.addSeparator()
+        self.menuFIles.addAction(self.actionExit)
+        self.menuColorspace.addAction(self.actionHSV)
+        self.menuColorspace.addAction(self.actionGrayscale)
+        self.menuRotate.addAction(self.actionRotateClockwise)
+        self.menuRotate.addAction(self.actionRotateAntiClockwise)
+        self.menuTransformations.addAction(self.menuRotate.menuAction())
+        self.menuTransformations.addSeparator()
+        self.menuTransformations.addAction(self.actionFlick_Horizontal)
+        self.menuTransformations.addAction(self.actionFlip_Vertical)
+        self.menubar.addAction(self.menuFIles.menuAction())
+        self.menubar.addAction(self.menuColorspace.menuAction())
+        self.menubar.addAction(self.menuTransformations.menuAction())
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.lbImage.setText(_translate("MainWindow", "No Image"))
+        self.menuFIles.setTitle(_translate("MainWindow", "Files"))
+        self.menuColorspace.setTitle(_translate("MainWindow", "Colorspace"))
+        self.menuTransformations.setTitle(_translate("MainWindow", "Transformations"))
+        self.menuRotate.setTitle(_translate("MainWindow", "Rotate"))
+        self.actionOpen.setText(_translate("MainWindow", "Open"))
+        self.actionOpen.setShortcut(_translate("MainWindow", "Ctrl+O"))
+        self.actionSave.setText(_translate("MainWindow", "Save"))
+        self.actionSave.setShortcut(_translate("MainWindow", "Ctrl+S"))
+        self.actionExit.setText(_translate("MainWindow", "Exit"))
+        self.actionExit.setShortcut(_translate("MainWindow", "Ctrl+W"))
+        self.actionHSV.setText(_translate("MainWindow", "HSV"))
+        self.actionHSV.setShortcut(_translate("MainWindow", "F1"))
+        self.actionGrayscale.setText(_translate("MainWindow", "Grayscale"))
+        self.actionGrayscale.setShortcut(_translate("MainWindow", "F2"))
+        self.actionFlick_Horizontal.setText(_translate("MainWindow", "Flip Horizontal"))
+        self.actionFlick_Horizontal.setShortcut(_translate("MainWindow", "Shift+H"))
+        self.actionFlip_Vertical.setText(_translate("MainWindow", "Flip Vertical"))
+        self.actionFlip_Vertical.setShortcut(_translate("MainWindow", "Shift+V"))
+        self.actionRotateClockwise.setText(_translate("MainWindow", "Rotate+"))
+        self.actionRotateClockwise.setShortcut(_translate("MainWindow", "Shift+R, Shift+Right"))
+        self.actionRotateAntiClockwise.setText(_translate("MainWindow", "Rotate-"))
+        self.actionRotateAntiClockwise.setShortcut(_translate("MainWindow", "Shift+R, Shift+Left"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
+
